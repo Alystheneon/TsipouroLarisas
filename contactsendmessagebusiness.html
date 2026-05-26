@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Contact — Send a Message (Business)</title>
+</head>
+
+<body>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header>
+    <img src="images/onlylion22.png" alt="Lion Logo" class="top-left-logo size-logo">
+    <img src="images/onlylion22.png" alt="Lion Logo" class="top-right-logo size-logo flip-logo">
+    <div class="title-nav-container">
+        <div class="title-container">
+            <h1 class="site-title">TSIPOURO LARISAS</h1>
+            <h2 class="site-subtitle">SPIRIT OF THE PLAINS</h2>
+        </div>
+        <nav aria-label="Primary">
+            <ul class="nav-links">
+                <li><a href="home.html" class="button nav-button">Home</a></li>
+                <li><a href="ourstory.html" class="button nav-button">Our Story</a></li>
+                <li><a href="ourtsipouro.html" class="button nav-button nav-button--small">Our Tsipouro</a></li>
+                <li><a href="visitus.html" class="button nav-button">Visit Us</a></li>
+                <li><a href="contact.html" class="button nav-button active">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<main id="main-content">
+
+    <section class="form-frame">
+
+        <header class="form-header">
+            <h1>Business Enquiries</h1>
+            <p>For restaurants, tsipouradika, wine shops and distributors worldwide.</p>
+        </header>
+
+        <form class="contact-form" action="#" method="post" novalidate>
+
+            <!-- Στοιχεία εταιρείας -->
+            <div class="form-row form-row-2">
+                <div class="field">
+                    <label for="b-company">Company Name</label>
+                    <input id="b-company" name="company" type="text" required>
+                </div>
+                <div class="field">
+                    <label for="b-contact">Contact Person</label>
+                    <input id="b-contact" name="contact" type="text" autocomplete="name" required>
+                </div>
+            </div>
+
+            <div class="form-row form-row-2">
+                <div class="field">
+                    <label for="b-type">Business Type</label>
+                    <select id="b-type" name="business_type" required>
+                        <option value="">— Choose one —</option>
+                        <option value="restaurant">Restaurant</option>
+                        <option value="tsipouradiko">Tsipouradiko</option>
+                        <option value="wine-shop">Wine Shop</option>
+                        <option value="distributor">Distributor</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="b-country">Country</label>
+                    <input id="b-country" name="country" type="text" autocomplete="country-name" required>
+                </div>
+            </div>
+
+            <div class="form-row form-row-2">
+                <div class="field">
+                    <label for="b-vat">VAT Number <small>(optional)</small></label>
+                    <input id="b-vat" name="vat" type="text">
+                </div>
+                <div class="field">
+                    <label for="b-volume">Estimated Annual Volume (bottles)</label>
+                    <select id="b-volume" name="volume" required>
+                        <option value="">— Choose a range —</option>
+                        <option value="lt-500">Less than 500</option>
+                        <option value="500-2000">500 – 2,000</option>
+                        <option value="2000-10000">2,000 – 10,000</option>
+                        <option value="gt-10000">More than 10,000</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Επικοινωνία -->
+            <div class="form-row form-row-2">
+                <div class="field">
+                    <label for="b-email">Email</label>
+                    <input id="b-email" name="email" type="email" autocomplete="email" required>
+                </div>
+                <div class="field">
+                    <label for="b-phone">Phone</label>
+                    <input id="b-phone" name="phone" type="tel" autocomplete="tel" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label for="b-message">Message</label>
+                <textarea id="b-message" name="message" minlength="20" required
+                          placeholder="Tell us about your business and what you’re looking for…"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <a class="back-link" href="contact.html">← Back to contact</a>
+                <button class="submit-btn" type="submit">Send Business Inquiry</button>
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <img src="images/onlylion22.png" alt="Lion Logo" class="bottom-left-logo size-logo">
+    <img src="images/onlylion22.png" alt="Lion Logo" class="bottom-right-logo flip-logo size-logo">
+    <p class="footer-text">© Tsipouro Larisas · Spirit of the Plains</p>
+</footer>
+
+</body>
+
+</html>

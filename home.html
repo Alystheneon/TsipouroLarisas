@@ -7,20 +7,20 @@
     <title>Tsipouro Larissas — Home</title>
 </head>
 <body>
-<header>
-    <img src="images/onlylion22.png" 
-         alt="Lion Logo" 
-         class="top-left-logo size-logo">
 
-    <img src="images/onlylion22.png" 
-         alt="Lion Logo" 
-         class="top-right-logo size-logo flip-logo">
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<!-- ========== HEADER ========== -->
+<header>
+    <img src="images/onlylion22.png" alt="Lion Logo" class="top-left-logo size-logo">
+    <img src="images/onlylion22.png" alt="Lion Logo" class="top-right-logo size-logo flip-logo">
+
     <div class="title-nav-container">
-         <div class ="title-container">
+        <div class="title-container">
             <h1 class="site-title">TSIPOURO LARISAS</h1>
             <h2 class="site-subtitle">SPIRIT OF THE PLAINS</h2>
-        </div>   
-        <nav>
+        </div>
+        <nav aria-label="Primary">
             <ul class="nav-links">
                 <li><a href="home.html" class="button nav-button active">Home</a></li>
                 <li><a href="ourstory.html" class="button nav-button">Our Story</a></li>
@@ -33,14 +33,55 @@
 </header>
 
 
+<!-- ========== MAIN ========== -->
+<main id="main-content">
+
+    <!-- Hero badge: μικρό oval με την ταυτότητα της εταιρείας -->
+    <section class="home-hero">
+        <span class="home-eyebrow">EST. 1970s · LARISSA · GREECE</span>
+    </section>
+
+    <!-- Stack από pill-shaped panels: κάθε pill και ένα κεφάλαιο του site -->
+    <section class="home-stack" aria-label="Site sections">
+
+        <article class="home-pill">
+            <h2>Welcome to Tsipouro Larisas</h2>
+            <p>A third-generation family distillery from the heart of Thessaly,
+               crafting authentic Greek tsipouro since the 1970s.</p>
+        </article>
+
+        <article class="home-pill">
+            <h2>Our Story</h2>
+            <p>From a small still in Larissa to a name carried by three generations.
+               Discover the family behind the bottle.</p>
+            <a class="pill-link" href="ourstory.html">Read more →</a>
+        </article>
+
+        <article class="home-pill">
+            <h2>Our Tsipouro</h2>
+            <p>Two expressions — with and without anise. Around 40,000 bottles a year,
+               Protected Geographical Indication of Thessaly.</p>
+            <a class="pill-link" href="ourtsipouro.html">Discover the spirit →</a>
+        </article>
+
+        <article class="home-pill">
+            <h2>Visit the Distillery</h2>
+            <p>Walk through the distillery, taste the spirit at the source —
+               14 Patroklou, Larissa.</p>
+            <a class="pill-link" href="visitus.html">Plan your visit →</a>
+        </article>
+
+    </section>
+
+</main>
+
+
+<!-- ========== FOOTER ========== -->
 <footer>
-    <img src="images/onlylion22.png" 
-         alt="Lion Logo" 
-         class="bottom-left-logo size-logo">
-    <img src="images/onlylion22.png" 
-         alt="Lion Logo"
-         class="bottom-right-logo flip-logo size-logo">
-         
+    <img src="images/onlylion22.png" alt="Lion Logo" class="bottom-left-logo size-logo">
+    <img src="images/onlylion22.png" alt="Lion Logo" class="bottom-right-logo flip-logo size-logo">
+    <p class="footer-text">© Tsipouro Larisas · Spirit of the Plains</p>
 </footer>
-</body> 
+
+</body>
 </html>

@@ -5,29 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Visit Us</title>
+    <title>Visit Us — Tsipouro Larisas</title>
 </head>
 
 <body>
-    <header>
-        <img src="images/onlylion22.png" alt="Lion Logo" class="top-left-logo size-logo">
-        <img src="images/onlylion22.png" alt="Lion Logo" class="top-right-logo size-logo flip-logo">
-        <div class="title-nav-container">
-            <div class="title-container">
-                <h1 class="site-title">TSIPOURO LARISAS</h1>
-                <h2 class="site-subtitle">SPIRIT OF THE PLAINS</h2>
-            </div>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="home.html" class="button nav-button">Home</a></li>
-                    <li><a href="ourstory.html" class="button nav-button">Our Story</a></li>
-                    <li><a href="ourtsipouro.html" class="button nav-button nav-button--small">Our Tsipouro</a></li>
-                    <li><a href="visitus.html" class="button nav-button active">Visit Us</a></li>
-                    <li><a href="contact.html" class="button nav-button">Contact</a></li>
-                </ul>
-            </nav>
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<header>
+    <img src="images/onlylion22.png" alt="Lion Logo" class="top-left-logo size-logo">
+    <img src="images/onlylion22.png" alt="Lion Logo" class="top-right-logo size-logo flip-logo">
+    <div class="title-nav-container">
+        <div class="title-container">
+            <h1 class="site-title">TSIPOURO LARISAS</h1>
+            <h2 class="site-subtitle">SPIRIT OF THE PLAINS</h2>
         </div>
-    </header>
+        <nav aria-label="Primary">
+            <ul class="nav-links">
+                <li><a href="home.html" class="button nav-button">Home</a></li>
+                <li><a href="ourstory.html" class="button nav-button">Our Story</a></li>
+                <li><a href="ourtsipouro.html" class="button nav-button nav-button--small">Our Tsipouro</a></li>
+                <li><a href="visitus.html" class="button nav-button active">Visit Us</a></li>
+                <li><a href="contact.html" class="button nav-button">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<main id="main-content">
+
+    <!-- Dark-themed wrapper: η μόνη σελίδα με σκούρο φόντο -->
+    <section class="visit-wrapper">
+        <div class="visit-grid">
+
+            <!-- Αριστερή στήλη: info -->
+            <div class="visit-info">
+                <h1>Visit Us in Larissa</h1>
+                <p>Walk through the distillery, taste both expressions at the source.</p>
+
+                <div class="visit-block">
+                    <h2>Address</h2>
+                    <p>14 Patroklou Street<br>
+                       Larissa, 41222<br>
+                       Greece</p>
+                </div>
+
+                <div class="visit-block">
+                    <h2>Opening Hours</h2>
+                    <ul>
+                        <li><span>Mon – Fri</span><span>10:00 – 17:00</span></li>
+                        <li><span>Saturday</span><span>11:00 – 15:00</span></li>
+                        <li><span>Sunday</span><span>Closed</span></li>
+                    </ul>
+                </div>
+
+                <div class="visit-block">
+                    <h2>Tour &amp; Tasting</h2>
+                    <p>A 45-minute walkthrough of the distillery, followed by a guided
+                       tasting of our tsipouro with and without anise. Small groups
+                       only; booking required.</p>
+                </div>
+
+                <a class="visit-cta" href="contact-request-visit.html">Request a Visit →</a>
+            </div>
+
+            <!-- Δεξιά στήλη: map (Google Maps embed, χωρίς API key) -->
+            <div class="visit-map">
+                <iframe
+                    title="Map of Larissa, Greece"
+                    src="https://www.google.com/maps?q=Larissa,Greece&output=embed"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <img src="images/onlylion22.png" alt="Lion Logo" class="bottom-left-logo size-logo">
+    <img src="images/onlylion22.png" alt="Lion Logo" class="bottom-right-logo flip-logo size-logo">
+    <p class="footer-text">© Tsipouro Larisas · Spirit of the Plains</p>
+</footer>
 
 </body>
 
