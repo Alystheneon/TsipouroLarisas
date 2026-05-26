@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Inter:wght@400;500;600;700&display=swap');
+/* Import δύο fonts: GFS Didot (τίτλους) & Inter (κείμενα).*/
+
+* {
+    box-sizing: border-box;
+    /* Padding & border ΔΕΝ προστίθενται στο μέγεθος (πιο εύκολος υπολογισμός). */
+
+    margin: 0;
+    padding: 0;
+    /* Μηδενίζουμε τα default margins/paddings των browsers. */
+}
+
+body {
+    min-height: 100vh;
+    /* Ελάχιστο ύψος = 100% της οθόνης. Το body γεμίζει πάντα την οθόνη. */
+
+    background: linear-gradient(180deg,
+            white 0%,
+            #FFF3B5 35%,
+            #FFF3B5 65%,
+            white 100%);
+    /* gradient background λευκό → χρυσό → λευκό */
+
+    font-family: 'GFS Didot', serif;
+    /* Default γραμματοσειρά. Fallback: οποιαδήποτε serif. */
+}
+
+
+/* --- LOGO --- */
+
+.size-logo {
+    width: 189px;
+    height: auto;
+    /* Σταθερό πλάτος, ύψος αυτόματα (κρατάει τις αναλογίες). */
+}
+
+.flip-logo {
+    transform: scaleX(-1);
+    /* flipped logo */
+}
+
+/* Κοινό style για όλα τα corner logos: */
+.top-left-logo,
+.top-right-logo,
+.bottom-left-logo,
+.bottom-right-logo {
+    position: absolute;
+    /* Αφαιρεί το element από τη φυσική ροή. 
+       Τοποθετείται με top/right/bottom/left. */
+}
+
+.top-left-logo {
+    top: 0;
+    left: 0;
+}
+
+/* πάνω-αριστερά */
+.top-right-logo {
+    top: 0;
+    right: 0;
+}
+
+/* πάνω-δεξιά */
+.bottom-left-logo {
+    bottom: 0;
+    left: 0;
+}
+
+/* κάτω-αριστερά */
+.bottom-right-logo {
+    bottom: 0;
+    right: 0;
+}
+
+/* κάτω-δεξιά */
+
+
+/* -------   BUTTONS — γενικό style για τα κουμπιά του site------- */
+
+.button {
+    width: 100px;
+    height: 52px;
+    line-height: 52px;
+    /* για να κεντράρει κάθετα το κείμενο */
+
+    display: inline-block;
+    /* το <a> by default είναι inline, δεν παίρνει διαστάσεις */
+    text-align: center;
+
+    background: transparent;
+    /* διάφανο φόντο */
+    border-radius: 100px;
+    /* στρογγυλεμένα άκρα */
+    border: 0.5px solid black;
+    /* μαύρο περίγραμμα */
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /* μικρή σκιά κάτω */
+
+    color: rgba(255, 215, 0, 0.57);
+    /* χρυσό με διαφάνεια */
+    font-family: 'GFS Didot', serif;
+    font-size: 40px;
+    font-weight: 400;
+    text-decoration: none;
+    /* βγάζω το underline του <a> */
+    text-shadow: 0px 4px 4px rgba(255, 215, 0, 0.25);
+    /* χρυσό glow */
+    -webkit-text-stroke: 0.5px black;
+    /* μαύρο περίγραμμα στα γράμματα */
+
+    cursor: pointer;
+    transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* όταν περνάει το ποντίκι από πάνω */
+.button:hover {
+    color: #FFD700;
+    /* πιο έντονο χρυσό */
+    text-shadow: 0px 4px 8px rgba(255, 215, 0, 0.6);
+    transform: translateY(-2px);
+    /* ανεβαίνει λίγο */
+}
+
+/* τη στιγμή που πατιέται */
+.button:active {
+    transform: translateY(0);
+    /* ξαναπέφτει = αίσθηση κλικ */
+}
+
+/* === AGE CHECK PAGE =====*/
+
+.age-check-body {
+    min-height: 100vh;
+    /* Γεμίζει το ύψος της οθόνης. */
+
+    display: flex;
+    /* Ενεργοποιεί flexbox. Τα παιδιά γίνονται flex items. */
+
+    align-items: center;
+    /* Στοίχιση παιδιών κάθετα στο κέντρο. */
+
+    justify-content: center;
+    /* Στοίχιση παιδιών οριζόντια στο κέντρο. */
+}
+
+.age-check-container {
+    display: flex;
+    flex-direction: column;
+    /* Τα παιδιά στοιβάζονται κάθετα (το ένα κάτω από το άλλο). */
+
+    align-items: center;
+    /* Σε column flex, αυτό στοιχίζει οριζόντια. */
+
+    gap: 40px;
+    /* 40px απόσταση μεταξύ τίτλου και κουμπιών. */
+}
+
+.age-check-title {
+    font-family: 'GFS Didot', serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: #FFD700;
+    text-align: center;
+    -webkit-text-stroke: 0.5px black;
+}
+
+.yes-no-buttons-container {
+    display: flex;
+    /* Default flex-direction: row → κουμπιά δίπλα-δίπλα. */
+
+    justify-content: center;
+    /* Στοίχιση οριζόντια στο κέντρο. */
+
+    gap: 80px;
+    /* 80px ανάμεσα στο Yes και No. */
+}
+
+.button-agecheck {
+    width: 100px;
+    height: 52px;
+    font-size: 40px;
+    line-height: 52px;
+    /* line-height = height → κεντράρει το κείμενο κάθετα μέσα στο κουμπί. */
+}
+
+/* ══════════════════════ HEADER & NAVBAR ════════════════════════════════ */
+
+.home-body {
+    min-height: 100vh;
+    /* Το background gradient έρχεται από τον γενικό body κανόνα. */
+}
+
+.site-header {
+    position: relative;
+    /* Γίνεται γονιός αναφοράς για τα λιοντάρια του header. */
+    padding: 60px 20px 40px;
+    text-align: center;
+    min-height: 271px;
+}
+
+/* ----- Τίτλοι ----- */
+.site-header__titles {
+    margin-bottom: 30px;
+}
+
+.site-title {
+    font-family: 'GFS Didot', serif;
+    font-size: 64px;
+    font-weight: 400;
+    color: rgba(255, 215, 0, 0.57);
+    text-shadow: 0px 4px 4px rgba(255, 215, 0, 0.25);
+    letter-spacing: 2px;
+    margin: 0;
+    -webkit-text-stroke: 0.5px black;
+}
+
+.site-subtitle {
+    font-family: 'GFS Didot', serif;
+    font-size: 40px;
+    font-weight: 400;
+    color: rgba(255, 215, 0, 0.57);
+    text-shadow: 0px 4px 4px rgba(255, 215, 0, 0.25);
+    letter-spacing: 1px;
+    margin: 10px 0 0;
+    -webkit-text-stroke: 0.5px black;
+}
+
+.title-nav-container {
+
+    justify-content: center;
+    gap: 20px;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-links {
+    list-style: none;
+    /* βγάζει τις κουκκίδες */
+    display: flex;
+    gap: 28px;
+    justify-content: center;
+    padding: 24px 0;
+}
+
+.nav-button {
+    width: 190px;
+    height: 64px;
+    line-height: 64px;
+    font-size: 24px;
+    font-family: 'GFS Didot', serif;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* για το "Our Tsipouro" που έχει πιο πολλά γράμματα */
+.nav-button--small {
+    width: 190px;
+    font-size: 22px;
+}
+
+.nav-button.active {
+    position: relative;
+    /* για να "κρατήσει" το ::after */
+    text-decoration: none;
+    /* βγάζω το παλιό underline */
+}
+
+.nav-button.active::after {
+    content: "";
+    /* απαιτείται για να εμφανιστεί το ψευδοστοιχείο */
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 3px;
+    background: currentColor;
+    color: black;
+}
+
+
+

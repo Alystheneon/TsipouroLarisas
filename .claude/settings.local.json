@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:github.com)",
+      "PowerShell($ext = \"$env:USERPROFILE\\\\.vscode\\\\extensions\\\\godly-colors-1.0.0\"; New-Item -ItemType Directory -Force -Path \"$ext\\\\themes\" | Out-Null; Copy-Item \"C:\\\\Users\\\\mihal\\\\Desktop\\\\GitHub\\\\VSCode_GodlyColors\\\\DivineGodlyTheme.jsonc\" \"$ext\\\\themes\\\\DivineGodlyTheme.jsonc\" -Force; Write-Output $ext; Get-ChildItem $ext -Recurse | Select-Object FullName)",
+      "PowerShell(Get-ChildItem \"$env:USERPROFILE\\\\.vscode\\\\extensions\\\\godly-colors-1.0.0\" -Recurse -Force | Select-Object FullName, Length)",
+      "PowerShell(Test-Path \"$env:USERPROFILE\\\\.vscode\\\\extensions\\\\godly-colors-1.0.0\\\\themes\\\\DivineGodlyTheme.jsonc\"; \\(Get-Item \"$env:USERPROFILE\\\\.vscode\\\\extensions\\\\godly-colors-1.0.0\\\\themes\\\\DivineGodlyTheme.jsonc\"\\).Length)"
+    ]
+  }
+}
