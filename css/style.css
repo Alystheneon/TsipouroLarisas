@@ -1,1041 +1,1078 @@
-/* ============================================================
-   TSIPOURO LARISAS — SPIRIT OF THE PLAINS
-   Stylesheet: css/style.css
-   ============================================================ */
+/* style.css - tsipouro larissas
+   ολο το styling για ολες τις σελιδες σε ενα αρχειο.
+   παλετα: cream/χρυσο, fonts: Cinzel + Cormorant Garamond. */
 
 
-/* ---------- 1. DESIGN TOKENS ---------- */
-:root {
-    /* Παλέτα χρωμάτων */
-    --color-cream: #f1e3bf;
-    --color-cream-light: #faf2dc;
-    --color-cream-dark: #e7d49a;
-    --color-dark: #2a1c0a;
-    --color-brown: #4a3318;
-    --color-brown-light: #6e4f27;
-    --color-gold: #c9a14e;
-    --color-gold-light: #e8c878;
-    --color-night: #0e0d0c;
-    --color-night-soft: #1a1715;
-    --color-pink: #f7d9d2;
-    --color-pink-deep: #ecb8ad;
-    --color-leaf: #4a5f2b;
-    --color-leaf-dark: #2e3f17;
-
-    /* Τυπογραφία */
-    --font-heading: "Cormorant Garamond", "Playfair Display", Georgia, "Times New Roman", serif;
-    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-
-    /* Διαστάσεις */
-    --max-width: 1200px;
-    --gutter: clamp(1rem, 3vw, 2rem);
-    --radius-pill: 999px;
-    --radius-card: 14px;
-    --radius-small: 6px;
-
-    /* Σκιές & περιγράμματα */
-    --shadow-card: 0 10px 28px rgba(42, 28, 10, 0.18);
-    --shadow-soft: 0 4px 14px rgba(42, 28, 10, 0.1);
-    --border-gold: 2px solid var(--color-gold);
-    --border-thin: 1px solid rgba(42, 28, 10, 0.2);
-}
-
-
-/* ---------- 2. RESET / BASE ---------- */
+/* ---------- reset ----------
+   μηδενιζω margins/paddings παντου, box-sizing border-box
+   ωστε padding+border να μπαινουν μεσα στο πλατος */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-    margin: 0;
-    min-height: 100vh;
-    font-family: var(--font-body);
-    color: var(--color-dark);
-    background-color: var(--color-cream);
-    background-image:
-        radial-gradient(circle at 20% 10%, rgba(201, 161, 78, 0.08), transparent 40%),
-        radial-gradient(circle at 80% 90%, rgba(201, 161, 78, 0.08), transparent 40%);
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-a {
-    color: var(--color-brown);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover,
-a:focus-visible {
-    color: var(--color-gold);
-}
-
-h1, h2, h3, h4 {
-    font-family: var(--font-heading);
-    color: var(--color-dark);
-    margin: 0 0 0.6em;
-    letter-spacing: 0.02em;
-    line-height: 1.2;
-}
-
-p {
-    margin: 0 0 1em;
-}
-
-/* Skip link για προσβασιμότητα */
-.skip-link {
-    position: absolute;
-    top: -100px;
-    left: 1rem;
-    background: var(--color-dark);
-    color: var(--color-cream);
-    padding: 0.6rem 1rem;
-    border-radius: var(--radius-small);
-    z-index: 1000;
-    transition: top 0.2s;
-}
-
-.skip-link:focus {
-    top: 1rem;
-}
-
-
-/* ---------- 3. HEADER (4 λιοντάρια, τίτλος, navigation) ---------- */
-header {
-    position: relative;
-    padding: 2.5rem var(--gutter) 1.5rem;
-    text-align: center;
-}
-
-.size-logo {
-    width: clamp(60px, 8vw, 100px);
-    height: auto;
-    pointer-events: none;
-    user-select: none;
-}
-
-.flip-logo {
-    transform: scaleX(-1);
-}
-
-.top-left-logo,
-.top-right-logo,
-.bottom-left-logo,
-.bottom-right-logo {
-    position: absolute;
-}
-
-.top-left-logo {
-    top: 1rem;
-    left: 1rem;
-}
-
-.top-right-logo {
-    top: 1rem;
-    right: 1rem;
-}
-
-.bottom-left-logo {
-    bottom: 1rem;
-    left: 1rem;
-}
-
-.bottom-right-logo {
-    bottom: 1rem;
-    right: 1rem;
-}
-
-.title-nav-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-}
-
-.title-container {
-    margin: 0 auto;
-}
-
-.site-title {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 3.4rem);
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    margin: 0;
-    color: var(--color-dark);
-}
-
-.site-subtitle {
-    font-family: var(--font-heading);
-    font-size: clamp(0.9rem, 1.6vw, 1.15rem);
-    font-weight: 400;
-    font-style: italic;
-    letter-spacing: 0.3em;
-    margin: 0.2rem 0 0;
-    color: var(--color-brown-light);
-    text-transform: uppercase;
-}
-
-
-/* ---------- 4. NAVIGATION ---------- */
-nav {
-    width: 100%;
-}
-
-.nav-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6rem;
-}
-
-.button {
-    display: inline-block;
-    padding: 0.55rem 1.3rem;
-    background-color: var(--color-cream-light);
-    color: var(--color-dark);
-    border: var(--border-gold);
-    border-radius: var(--radius-pill);
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background-color 0.2s, color 0.2s, transform 0.15s;
-}
-
-.button:hover,
-.button:focus-visible {
-    background-color: var(--color-gold);
-    color: var(--color-cream-light);
-    transform: translateY(-1px);
-    outline: none;
-}
-
-.nav-button.active {
-    background-color: var(--color-dark);
-    color: var(--color-cream-light);
-    border-color: var(--color-dark);
-}
-
-.nav-button--small {
-    padding: 0.55rem 1rem;
-    font-size: 0.78rem;
-}
-
-
-/* ---------- 5. FOOTER ---------- */
-footer {
-    position: relative;
-    margin-top: auto;
-    padding: 3rem var(--gutter) 2.5rem;
-    text-align: center;
-    color: var(--color-brown-light);
-    font-size: 0.85rem;
-}
-
-footer .footer-text {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-
-/* ---------- 6. MAIN WRAPPER ---------- */
-main {
-    flex: 1;
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 2rem var(--gutter) 3rem;
-}
-
-
-/* ---------- 7. AGE CHECK (index.html + answerisno.html) ---------- */
-.age-check-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.age-check-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 2rem var(--gutter);
-}
-
-.age-check-title {
-    font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 4vw, 2.6rem);
-    max-width: 720px;
-    margin: 0 auto 2rem;
-    color: var(--color-dark);
-    line-height: 1.3;
-}
-
-.yes-no-buttons-container {
-    display: flex;
-    gap: 1.2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.yes-no-buttons-container .button {
-    min-width: 130px;
-    font-size: 1rem;
-    padding: 0.8rem 2rem;
-}
-
-
-/* ============================================================
-   8. HOME PAGE  (home.html)
-   Stack από pill-shaped panels με storytelling
-   ============================================================ */
-.home-hero {
-    text-align: center;
-    padding-bottom: 1.5rem;
-}
-
-.home-eyebrow {
-    display: inline-block;
-    padding: 0.5rem 1.4rem;
-    background: var(--color-dark);
-    color: var(--color-cream-light);
-    border: 2px solid var(--color-gold);
-    border-radius: var(--radius-pill);
-    font-size: 0.78rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-.home-stack {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.6rem;
-    margin: 2rem auto 0;
-    max-width: 620px;
-}
-
-.home-pill {
-    width: 100%;
-    background: var(--color-dark);
-    color: var(--color-cream-light);
-    border: 2px solid var(--color-gold);
-    border-radius: var(--radius-pill);
-    padding: 1.6rem 2.2rem;
-    text-align: center;
-    box-shadow: var(--shadow-card);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.home-pill:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 32px rgba(42, 28, 10, 0.28);
-}
-
-.home-pill h2 {
-    color: var(--color-gold-light);
-    font-size: clamp(1.2rem, 2.4vw, 1.6rem);
-    margin: 0 0 0.4rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-}
-
-.home-pill p {
-    margin: 0 0 0.6rem;
-    font-size: 0.95rem;
-    line-height: 1.55;
-    color: var(--color-cream-light);
-    opacity: 0.92;
-}
-
-.home-pill .pill-link {
-    display: inline-block;
-    margin-top: 0.4rem;
-    color: var(--color-gold-light);
-    font-size: 0.78rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-bottom: 1px solid var(--color-gold);
-    padding-bottom: 2px;
-}
-
-.home-pill .pill-link:hover {
-    color: var(--color-cream-light);
-    border-color: var(--color-cream-light);
-}
-
-
-/* ============================================================
-   9. OUR STORY  (ourstory.html)
-   Vertical κάρτες σε frame + landscape strip στο τέλος
-   ============================================================ */
-.story-frame {
-    max-width: 820px;
-    margin: 0 auto;
-    background: var(--color-cream-light);
-    border: var(--border-gold);
-    border-radius: var(--radius-card);
-    padding: 2.5rem clamp(1.2rem, 3vw, 2.5rem);
-    box-shadow: var(--shadow-card);
-}
-
-.story-intro {
-    text-align: center;
-    margin-bottom: 2.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px dashed var(--color-gold);
-}
-
-.story-intro h1 {
-    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-    margin-bottom: 0.4rem;
-}
-
-.story-intro p {
-    color: var(--color-brown-light);
-    font-style: italic;
-    margin: 0;
-}
-
-.story-section {
-    margin: 0 0 2.2rem;
-    padding: 1.4rem 1.6rem;
-    background: var(--color-cream);
-    border-left: 4px solid var(--color-gold);
-    border-radius: var(--radius-small);
-}
-
-.story-section:last-of-type {
-    margin-bottom: 0;
-}
-
-.story-section h2 {
-    font-size: 1.5rem;
-    margin: 0 0 0.3rem;
-    color: var(--color-dark);
-}
-
-.story-section .story-tag {
-    display: block;
-    font-style: italic;
-    font-size: 0.9rem;
-    color: var(--color-brown-light);
-    margin-bottom: 0.8rem;
-}
-
-.story-section p {
-    margin: 0 0 0.8rem;
-    color: var(--color-brown);
-}
-
-.story-section p:last-child {
-    margin-bottom: 0;
-}
-
-.landscape-strip {
-    margin-top: 2.5rem;
-    height: 180px;
-    border-radius: var(--radius-card);
-    background:
-        linear-gradient(180deg, rgba(14, 13, 12, 0) 0%, rgba(46, 63, 23, 0.15) 80%),
-        linear-gradient(180deg, #cfd9aa 0%, #7e8f4a 45%, #4a5f2b 80%, #2e3f17 100%);
-    position: relative;
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-}
-
-.landscape-strip::before,
-.landscape-strip::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-repeat: repeat-x;
-    background-position: bottom;
-}
-
-.landscape-strip::before {
-    background-image: linear-gradient(to top, rgba(46, 63, 23, 0.8) 0%, transparent 30%);
-}
-
-.landscape-strip::after {
-    background-image: radial-gradient(ellipse at 30% 100%, rgba(255, 255, 255, 0.4), transparent 50%);
-}
-
-.landscape-strip .strip-text {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-cream-light);
-    font-family: var(--font-heading);
-    font-style: italic;
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    letter-spacing: 0.2em;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-}
-
-
-/* ============================================================
-   10. OUR TSIPOURO  (ourtsipouro.html)
-   4x4 σκακιέρα grid
-   ============================================================ */
-.tsipouro-intro {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 2rem;
-}
-
-.tsipouro-intro h1 {
-    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-    margin-bottom: 0.4rem;
-}
-
-.tsipouro-intro p {
-    color: var(--color-brown-light);
-    font-style: italic;
-    margin: 0;
-}
-
-.chessboard {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 760px;
-    margin: 0 auto;
-    border: var(--border-gold);
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-}
-
-.cell {
-    aspect-ratio: 1 / 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 0.8rem;
-    text-align: center;
-    font-size: 0.85rem;
-    line-height: 1.3;
-}
-
-.cell-dark {
-    background: var(--color-dark);
-    color: var(--color-cream-light);
-}
-
-.cell-light {
-    background: var(--color-cream-light);
-    color: var(--color-dark);
-}
-
-.cell-number {
-    font-family: var(--font-heading);
-    font-size: clamp(1.3rem, 2.5vw, 2rem);
-    font-weight: 600;
-    margin-bottom: 0.2rem;
-    color: var(--color-gold-light);
-}
-
-.cell-dark .cell-number {
-    color: var(--color-gold-light);
-}
-
-.cell-light .cell-number {
-    color: var(--color-brown);
-}
-
-.cell-label {
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-weight: 600;
-}
-
-.cell-bottle {
-    font-size: 2.2rem;
-    line-height: 1;
-}
-
-.tsipouro-outro {
-    max-width: 720px;
-    margin: 2.5rem auto 0;
-    text-align: center;
-    color: var(--color-brown);
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-
-/* ============================================================
-   11. VISIT US  (visitus.html)
-   Dark theme + 2-column layout (info + map)
-   ============================================================ */
-.visit-wrapper {
-    background: var(--color-night);
-    color: var(--color-cream-light);
-    border-radius: var(--radius-card);
-    padding: clamp(1.6rem, 4vw, 3rem);
-    box-shadow: var(--shadow-card);
-    border: 1px solid rgba(201, 161, 78, 0.3);
-}
-
-.visit-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: start;
-}
-
-.visit-info h1 {
-    color: var(--color-cream-light);
-    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
-    margin-bottom: 0.4rem;
-}
-
-.visit-info > p {
-    color: var(--color-cream-dark);
-    font-style: italic;
-    margin-bottom: 2rem;
-}
-
-.visit-block {
-    margin-bottom: 1.6rem;
-    padding-bottom: 1.4rem;
-    border-bottom: 1px solid rgba(201, 161, 78, 0.25);
-}
-
-.visit-block:last-of-type {
-    border-bottom: none;
-}
-
-.visit-block h2 {
-    font-size: 1.1rem;
-    color: var(--color-gold-light);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    margin: 0 0 0.6rem;
-}
-
-.visit-block p,
-.visit-block li {
-    color: var(--color-cream-light);
-    margin: 0 0 0.3rem;
-    font-size: 0.95rem;
-}
-
-.visit-block ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.visit-block li {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.2rem 0;
-}
-
-.visit-block li span:last-child {
-    color: var(--color-cream-dark);
-}
-
-.visit-cta {
-    display: inline-block;
-    margin-top: 1.5rem;
-    padding: 0.75rem 1.8rem;
-    background: var(--color-gold);
-    color: var(--color-night);
-    border-radius: var(--radius-pill);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 0.85rem;
-    border: 2px solid var(--color-gold);
-    transition: background 0.2s, color 0.2s, transform 0.15s;
-}
-
-.visit-cta:hover {
-    background: transparent;
-    color: var(--color-gold-light);
-    transform: translateY(-1px);
-}
-
-.visit-map {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    border-radius: var(--radius-card);
-    overflow: hidden;
-    border: 1px solid rgba(201, 161, 78, 0.4);
-    background: var(--color-night-soft);
-}
-
-.visit-map iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-    filter: grayscale(0.3) brightness(0.95);
-}
-
-
-/* ============================================================
-   12. CONTACT HUB  (contact.html)
-   3 κάρτες με επιλογή φόρμας
-   ============================================================ */
-.contact-intro {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto 2.5rem;
-}
-
-.contact-intro h1 {
-    font-size: clamp(2rem, 3.6vw, 2.8rem);
-    margin-bottom: 0.4rem;
-}
-
-.contact-intro p {
-    color: var(--color-brown-light);
-    font-style: italic;
-    margin: 0;
-    font-size: 1.05rem;
-}
-
-.contact-options {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.contact-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2rem 1.5rem;
-    background: var(--color-pink);
-    border: var(--border-gold);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
-    color: var(--color-dark);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s;
-}
-
-.contact-card:hover,
-.contact-card:focus-visible {
-    transform: translateY(-4px);
-    background: var(--color-pink-deep);
-    box-shadow: 0 16px 36px rgba(42, 28, 10, 0.22);
-    color: var(--color-dark);
-}
-
-.contact-icon {
-    font-size: 2.4rem;
-    margin-bottom: 0.8rem;
-    line-height: 1;
-}
-
-.contact-card h2 {
-    font-size: 1.3rem;
-    margin: 0 0 0.4rem;
-}
-
-.contact-card p {
-    margin: 0;
-    font-size: 0.92rem;
-    color: var(--color-brown);
-    line-height: 1.5;
-}
-
-
-/* ============================================================
-   13. CONTACT FORMS (request-visit, send-message, send-message-business)
-   ============================================================ */
-.form-frame {
-    max-width: 720px;
-    margin: 0 auto;
-    background: var(--color-cream-light);
-    border: var(--border-gold);
-    border-radius: var(--radius-card);
-    padding: clamp(1.8rem, 4vw, 3rem);
-    box-shadow: var(--shadow-card);
-}
-
-.form-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1.2rem;
-    border-bottom: 1px dashed var(--color-gold);
-}
-
-.form-header h1 {
-    font-size: clamp(1.8rem, 3.4vw, 2.4rem);
-    margin: 0 0 0.4rem;
-}
-
-.form-header p {
-    color: var(--color-brown-light);
-    font-style: italic;
-    margin: 0;
-}
-
-.contact-form {
-    display: grid;
-    gap: 1.1rem;
-}
-
-.contact-form fieldset {
-    border: none;
-    padding: 0;
-    margin: 0;
-}
-
-.contact-form legend {
-    font-family: var(--font-heading);
-    font-size: 1.1rem;
-    color: var(--color-dark);
-    margin-bottom: 0.6rem;
-    font-weight: 600;
-}
-
-.form-row {
-    display: grid;
-    gap: 1.1rem;
-}
-
-@media (min-width: 640px) {
-    .form-row-2 {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-.field {
-    display: flex;
-    flex-direction: column;
-}
-
-.field label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--color-brown);
-    margin-bottom: 0.35rem;
-    letter-spacing: 0.04em;
-}
-
-.field input,
-.field select,
-.field textarea {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    padding: 0.65rem 0.9rem;
-    border: var(--border-thin);
-    border-radius: var(--radius-small);
-    background: white;
-    color: var(--color-dark);
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-    outline: none;
-    border-color: var(--color-gold);
-    box-shadow: 0 0 0 3px rgba(201, 161, 78, 0.25);
-}
-
-.field textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.radio-group,
-.checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    margin-top: 0.3rem;
-}
-
-.radio-group label,
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.5rem 0.9rem;
-    background: white;
-    border: var(--border-thin);
-    border-radius: var(--radius-pill);
-    font-size: 0.9rem;
-    cursor: pointer;
-    font-weight: 500;
-    color: var(--color-brown);
-    transition: background 0.2s, border-color 0.2s;
-}
-
-.radio-group label:hover,
-.checkbox-group label:hover {
-    border-color: var(--color-gold);
-}
-
-.radio-group input[type="radio"]:checked + span,
-.checkbox-group input[type="checkbox"]:checked + span {
-    font-weight: 700;
-}
-
-.form-actions {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.submit-btn {
-    background: var(--color-dark);
-    color: var(--color-cream-light);
-    border: 2px solid var(--color-dark);
-    border-radius: var(--radius-pill);
-    padding: 0.8rem 2rem;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s, transform 0.15s;
-}
-
-.submit-btn:hover,
-.submit-btn:focus-visible {
-    background: var(--color-gold);
-    color: var(--color-dark);
-    border-color: var(--color-gold);
-    transform: translateY(-1px);
-    outline: none;
-}
-
-.back-link {
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-brown-light);
-}
-
-.back-link:hover {
-    color: var(--color-dark);
-}
-
-
-/* ============================================================
-   14. RESPONSIVE BREAKPOINTS
-   ============================================================ */
+  font-family: "Cormorant Garamond", "EB Garamond", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.55;
+  color: #3a2a10;
+  min-height: 100vh;
+  background: linear-gradient(180deg,
+              #fffaf0 0%,
+              #fdf3cd 35%,
+              #f6e4a3 60%,
+              #fdf3cd 90%,
+              #fffaf0 100%);
+  background-attachment: fixed;   /* δεν κουναει το gradient στο scroll */
+  overflow-x: hidden;
+  position: relative;             /* anchor για τα λιονταρια */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #c9a14a;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+
+/* ---------- λιονταρια στις γωνιες ----------
+   position: absolute -> κολλανε στον γονιο (header ή footer).
+   pointer-events: none ωστε να μην εμποδιζουν clicks σε links */
+.lion-corner {
+  position: absolute;
+  width: 130px;
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: 1;
+}
+.lion-corner.tl { top: 10px;    left: 10px; }
+.lion-corner.tr { top: 10px;    right: 10px; transform: scaleX(-1); } /* mirror */
+.lion-corner.bl { bottom: 10px; left: 10px; }
+.lion-corner.br { bottom: 10px; right: 10px; transform: scaleX(-1); }
+
+/* στο footer τα κατω λιονταρια πανε λιγο πιο πανω
+   για να μην επικαλυπτονται με το copyright line */
+.site-footer .lion-corner.bl,
+.site-footer .lion-corner.br { bottom: 75px; }
 @media (max-width: 900px) {
-    .visit-grid {
-        grid-template-columns: 1fr;
-        gap: 1.6rem;
-    }
-    .visit-map {
-        aspect-ratio: 16 / 10;
-    }
-    .contact-options {
-        grid-template-columns: 1fr;
-        max-width: 520px;
-    }
+  .site-footer .lion-corner.bl,
+  .site-footer .lion-corner.br { bottom: 90px; }
+}
+@media (max-width: 600px) {
+  .site-footer .lion-corner.bl,
+  .site-footer .lion-corner.br { bottom: 110px; }
 }
 
-@media (max-width: 768px) {
-    .top-left-logo,
-    .top-right-logo,
-    .bottom-left-logo,
-    .bottom-right-logo {
-        position: relative;
-        top: auto;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        display: inline-block;
-    }
-    header {
-        padding-top: 1.5rem;
-    }
-    header .top-left-logo,
-    header .top-right-logo {
-        position: absolute;
-    }
-    footer {
-        padding-top: 2rem;
-    }
-    .nav-links {
-        gap: 0.4rem;
-    }
-    .button {
-        font-size: 0.78rem;
-        padding: 0.5rem 1rem;
-    }
+/* σε κινητα μικραινουν για να μη φραζουν το content */
+@media (max-width: 800px) {
+  .lion-corner { width: 80px; opacity: 0.5; }
+}
+@media (max-width: 500px) {
+  .lion-corner { width: 60px; }
 }
 
-@media (max-width: 560px) {
-    header {
-        padding-top: 1rem;
-    }
-    .size-logo {
-        width: 52px;
-    }
-    .chessboard {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .cell {
-        font-size: 0.78rem;
-    }
-    .nav-button.active,
-    .nav-button {
-        flex: 1 1 auto;
-    }
-    .home-pill {
-        padding: 1.2rem 1.5rem;
-        border-radius: 32px;
-    }
-    .form-actions {
-        flex-direction: column-reverse;
-        align-items: stretch;
-    }
-    .submit-btn {
-        width: 100%;
-    }
-    .back-link {
-        text-align: center;
-    }
+
+/* ---------- header ---------- */
+.site-header {
+  position: relative;
+  z-index: 10;
+  padding: 18px 0 0;
+  text-align: center;
+  background: linear-gradient(180deg, #fffaf0 0%, #fdf3cd 100%);
+  border-bottom: 1px solid rgba(201, 161, 74, 0.25);
+  overflow: hidden;            /* μη ξεφυγουν τα λιονταρια */
+}
+/* τα παιδια του header πανω απο τα λιονταρια */
+.site-header .brand-title,
+.site-header .brand-tagline,
+.site-header .main-nav { position: relative; z-index: 2; }
+
+.brand-title {
+  font-family: "Cinzel", serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.12em;
+  color: #d4af37;
+  text-shadow: 0 1px 0 #fffbe6;
+  margin: 0;
+}
+
+.brand-tagline {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  letter-spacing: 0.4em;
+  color: #c9a14a;
+  margin-top: 4px;
+}
+
+
+/* ---------- nav (τα pill links) ---------- */
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 22px auto 14px;
+  padding: 0 16px;
+}
+
+/* border-radius: 999px = "ατελειωτο" radius -> pill σχημα */
+.main-nav a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 26px;
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.04em;
+  color: #c9a14a;
+  background: linear-gradient(180deg, #fffefa 0%, #f9ecc1 100%);
+  border: 1px solid rgba(201, 161, 74, 0.55);
+  border-radius: 999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.main-nav a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(201, 161, 74, 0.3);
+}
+
+/* η τρεχουσα σελιδα */
+.main-nav a.active {
+  color: #a8851f;
+  background: linear-gradient(180deg, #fdf5d4 0%, #f0dc8f 100%);
+}
+
+
+/* ---------- main wrapper ---------- */
+main {
+  position: relative;
+  z-index: 5;
+  padding: 0 0 60px;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+
+/* ====== age gate ====== */
+.age-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px;
+  text-align: center;
+}
+
+.age-gate-question {
+  font-family: "Cinzel", serif;
+  font-size: 2rem;
+  color: #b08a2a;
+  margin-bottom: 40px;
+  letter-spacing: 0.05em;
+}
+
+.age-gate-buttons {
+  display: flex;
+  gap: 60px;
+}
+
+.age-btn {
+  display: inline-block;
+  padding: 10px 36px;
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  color: #d4af37;
+  background: linear-gradient(180deg, #fffefa 0%, #f9ecc1 100%);
+  border: 1px solid rgba(201, 161, 74, 0.55);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.age-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(201, 161, 74, 0.35);
+}
+
+.minor-message {
+  max-width: 600px;
+  font-family: "Cinzel", serif;
+  font-size: 1.6rem;
+  color: #b08a2a;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+
+/* ====== home - hero cards ======
+   border-radius: 50% / 35% = οβαλ σχημα (50% οριζοντια, 35% καθετα) */
+.hero-card {
+  position: relative;
+  width: min(1100px, 92%);
+  margin: 22px auto;
+  height: 250px;
+  border-radius: 50% / 35%;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(60, 40, 10, 0.18);
+  background-size: cover;
+  background-position: center;
+}
+
+/* dark overlay πανω απο τη φωτο, αλλιως δε φαινεται το text */
+.hero-card::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
+}
+
+.hero-card-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: #f4d97c;
+}
+
+.hero-card h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #f4d97c;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.hero-card p {
+  color: #f9e8a8;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  margin: 0 0 10px;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 6px;
+  font-family: "Cinzel", serif;
+  color: #f4d97c;
+  border-bottom: 1px solid rgba(244, 217, 124, 0.6);
+  padding-bottom: 2px;
+  transition: color 0.15s ease;
+}
+.card-link:hover { color: #fff3c0; }
+
+/* bg εικονες ανα card */
+.card-story    { background-image: url('../images/thessalian-plains.jpg'); }
+/* το tsipouro png ειναι transparent, οποτε εβαλα και bg color */
+.card-tsipouro { background-image: url('../images/Our_Tsipouro-removebg-preview.png');
+                 background-color: #f0d98a; }
+.card-visit    { background-image: url('../images/tsipouromethea.png'); }
+.card-contact  { background-image: url('../images/vineyard-grapes.jpg'); }
+
+
+/* ====== generic page title/intro (το χρησιμοποιω σε contact) ====== */
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 30px 0 14px;
+  color: #c9a14a;
+}
+
+.page-intro {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 30px;
+  color: #c9a14a;
+  font-size: 1.15rem;
+}
+
+
+/* ====== our story ====== */
+.values-block {
+  width: min(1100px, 92%);
+  margin: 30px auto 40px;
+}
+
+.values-header {
+  font-family: "Cinzel", serif;
+  font-size: 1.4rem;
+  color: #c9a14a;
+  letter-spacing: 0.1em;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(201, 161, 74, 0.4);
+  margin-bottom: 8px;
+}
+
+/* καθε γραμμη: bg εικονα + dark overlay για να φαινεται το text */
+.value-row {
+  position: relative;
+  margin: 8px 0;
+  padding: 14px 22px;
+  border-radius: 6px;
+  overflow: hidden;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  min-height: 60px;
+}
+.value-row::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+.value-row > * { position: relative; z-index: 2; }
+.value-row h3 {
+  font-size: 1.1rem;
+  color: #f4d97c;
+  margin-bottom: 4px;
+}
+.value-row p {
+  color: #fff8d6;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+.value-tradition { background-image: url('../images/distillery.jpg'); }
+.value-family    { background-image: url('../images/FdtyLM2l_FOT_8650-1qWwR.jpg'); }
+.value-place     { background-image: url('../images/vineyard-rows-stretching-towards-horizon.jpg'); }
+
+/* τα 3 chapter cards */
+.chapter {
+  position: relative;
+  width: min(1100px, 92%);
+  margin: 20px auto;
+  padding: 30px 40px;
+  border-radius: 8px;
+  color: #f4d97c;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  text-align: center;
+}
+.chapter::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.65);
+}
+.chapter > * { position: relative; z-index: 2; }
+.chapter h2 {
+  font-size: 1.4rem;
+  color: #f4d97c;
+  margin-bottom: 4px;
+}
+.chapter h3 {
+  font-size: 1.5rem;
+  color: #f4d97c;
+  margin-bottom: 18px;
+  letter-spacing: 0.08em;
+}
+.chapter p {
+  color: #fff5cc;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+.chapter-1 { background-image: url('../images/grandfather.png'); }
+.chapter-2 { background-image: url('../images/tsipouro1995.png'); }
+.chapter-3 { background-image: url('../images/today.png'); }
+
+
+/* ====== our tsipouro ====== */
+.tsipouro-section {
+  position: relative;
+  width: min(1100px, 96%);
+  margin: 30px auto;
+  padding: 30px 24px;
+  border: 1px solid rgba(201, 161, 74, 0.7);
+  border-radius: 6px;
+  background-image: url('../images/distillerybigscreen.png');
+  background-size: cover;
+  background-position: center;
+  color: #f4d97c;
+  overflow: hidden;
+}
+.tsipouro-section::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(20, 14, 5, 0.75);
+}
+.tsipouro-section > * { position: relative; z-index: 2; }
+
+.tsipouro-section h2 {
+  text-align: center;
+  font-size: 1.7rem;
+  color: #f4d97c;
+  margin-bottom: 8px;
+}
+.tsipouro-section .subtitle {
+  text-align: center;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: #f4d97c;
+  margin-bottom: 18px;
+}
+.tsipouro-section .intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 28px;
+  color: #fff5cc;
+  font-size: 1.05rem;
+}
+
+/* grid 6 στηλων για τα μπουκαλια.
+   gap: 0 γιατι οι κελιες κολλανε μεταξυ τους
+   (text/image/text/image/...) και το βλεπεις σαν checkerboard */
+.bottle-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.bottle-cell {
+  padding: 16px 10px;
+  text-align: center;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.bottle-cell.text {
+  background: rgba(0,0,0,0.6);
+  color: #f4d97c;
+}
+.bottle-cell.image {
+  background: #fff;
+}
+.bottle-cell img {
+  margin: 0 auto;
+  max-height: 200px;
+  width: auto;
+}
+.bottle-cell h3 {
+  font-size: 1rem;
+  color: #f4d97c;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+.bottle-cell .tagline {
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #f9e8a8;
+  margin-bottom: 8px;
+}
+.bottle-cell .desc {
+  font-size: 0.85rem;
+  color: #fff5cc;
+  line-height: 1.3;
+}
+.bottle-cell .spec {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #f9e8a8;
+}
+
+/* σε κινητο γινονται 2 στηλες (6 ηταν πολλες) */
+@media (max-width: 900px) {
+  .bottle-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ====== τα 4 βηματα παραγωγης ====== */
+.process-section {
+  position: relative;
+  width: min(1100px, 96%);
+  margin: 0 auto;
+  padding: 30px 20px;
+  background-image: url('../images/distillerybigscreen.png');
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.process-section::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(20, 14, 5, 0.78);
+}
+.process-section > * { position: relative; z-index: 2; }
+.process-section h2 {
+  text-align: center;
+  font-size: 1.6rem;
+  color: #f4d97c;
+  margin-bottom: 6px;
+}
+.process-section .subtitle {
+  text-align: center;
+  font-style: italic;
+  color: #f4d97c;
+  margin-bottom: 14px;
+}
+.process-section .intro {
+  text-align: center;
+  color: #fff5cc;
+  max-width: 900px;
+  margin: 0 auto 24px;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.process-step {
+  padding: 18px;
+  border: 1px solid rgba(201, 161, 74, 0.4);
+  border-radius: 4px;
+  background: rgba(0,0,0,0.35);
+  color: #fff5cc;
+  text-align: center;
+}
+.process-step h3 {
+  color: #f4d97c;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+  letter-spacing: 0.08em;
+}
+.process-step h4 {
+  color: #f4d97c;
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+.process-step .when {
+  font-style: italic;
+  color: #f9e8a8;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 800px) {
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+
+/* ====== visit us ====== */
+.visit-page {
+  position: relative;
+  background-image: url('../images/distillerybigscreen.png');
+  background-size: cover;
+  background-attachment: fixed;     /* parallax effect */
+  background-position: center;
+  padding: 30px 0;
+  overflow: hidden;
+}
+.visit-page::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: rgba(15, 10, 5, 0.7);
+}
+.visit-page > * { position: relative; z-index: 2; }
+
+/* οι "καψουλες" - οβαλ container με χρυσο border */
+.visit-card {
+  width: min(1000px, 92%);
+  margin: 20px auto;
+  padding: 30px 40px;
+  border: 1px solid rgba(201, 161, 74, 0.55);
+  border-radius: 50% / 18%;    /* οριζοντια 50%, καθετα 18% */
+  background: rgba(20, 14, 5, 0.55);
+  color: #f4d97c;
+  text-align: center;
+}
+.visit-card h2 {
+  font-size: 1.5rem;
+  color: #f4d97c;
+  margin-bottom: 12px;
+  letter-spacing: 0.08em;
+}
+.visit-card h3 {
+  font-size: 1.2rem;
+  color: #f4d97c;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+}
+.visit-card p {
+  color: #fff5cc;
+  line-height: 1.55;
+  margin: 8px 0;
+}
+
+.visit-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.visit-grid-3 > div h3 { color: #f4d97c; margin-bottom: 6px; }
+.visit-grid-3 .when { font-style: italic; margin-bottom: 8px; }
+
+.visit-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  text-align: left;
+}
+.visit-info h2 { text-align: center; }
+.visit-info ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+.visit-info li { margin: 12px 0; }
+.visit-info strong { color: #f4d97c; }
+
+.find-us img {
+  width: 100%;
+  max-width: 320px;
+  margin: 10px auto;
+  border-radius: 4px;
+  border: 1px solid rgba(201,161,74,0.4);
+}
+.request-visit-cta {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 10px 32px;
+  font-family: "Cinzel", serif;
+  color: #f4d97c;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(201, 161, 74, 0.7);
+  border-radius: 999px;
+  font-size: 1.1rem;
+  transition: background 0.2s ease;
+}
+.request-visit-cta:hover { background: rgba(201, 161, 74, 0.25); }
+
+@media (max-width: 800px) {
+  .visit-grid-3, .visit-info { grid-template-columns: 1fr; }
+}
+
+
+/* ====== contact form ====== */
+.contact-page {
+  position: relative;
+  background-image: url('../images/thessalian-plains.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 90vh;
+  padding: 30px 0 60px;
+  overflow: hidden;
+}
+
+.contact-page .page-title,
+.contact-page .page-intro {
+  color: #f4d97c;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  position: relative;
+  z-index: 2;
+}
+.contact-page .page-intro { font-size: 1.2rem; }
+
+/* το λευκο card της φορμας */
+.contact-form {
+  width: min(520px, 92%);
+  margin: 30px auto;
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 4px;
+  border: 1px solid rgba(201, 161, 74, 0.4);
+  overflow: hidden;
+  color: #2c1c00;
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+.form-section-header {
+  background: #f3eee2;
+  padding: 8px 16px;
+  font-size: 1.2rem;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  border-bottom: 1px solid #d4c89a;
+}
+
+/* καθε row της φορμας ειναι grid 2 στηλων: 130px για label + 1fr για input */
+.form-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  border-bottom: 1px solid #ece5cf;
+}
+.form-row label {
+  text-align: right;
+  padding: 8px 12px;
+  font-size: 1.05rem;
+}
+.form-row input,
+.form-row select,
+.form-row textarea {
+  padding: 8px 10px;
+  font-size: 1rem;
+  border: none;
+  background: #e6e6e6;
+  font-family: inherit;
+  width: 100%;
+  outline: none;
+}
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  background: #f5f5f5;
+}
+
+.form-radio-group {
+  padding: 14px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid #ece5cf;
+}
+.form-radio-group > label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.business-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  border-bottom: 1px solid #ece5cf;
+  font-size: 0.95rem;
+}
+
+.business-name-row {
+  padding: 8px 16px;
+  border-bottom: 1px solid #ece5cf;
+  font-size: 0.95rem;
+}
+.business-name-row label { display: block; margin-bottom: 4px; }
+.business-name-row input {
+  width: 100%; padding: 6px 10px;
+  border: 1px solid #ccc; background: #fafafa;
+  font-family: inherit; font-size: 1rem;
+}
+
+.subject-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  border-bottom: 1px solid #ece5cf;
+}
+.subject-row label {
+  text-align: right;
+  padding: 10px 12px;
+  font-size: 1.1rem;
+}
+.subject-row input {
+  background: #e6e6e6;
+  border: none;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.message-area {
+  width: 100%;
+  min-height: 240px;
+  border: none;
+  padding: 16px;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  outline: none;
+  display: block;
+}
+
+
+/* το πιο cool κομματι του project!
+   ολα κρυμμενα by default, εμφανιζονται μονο οταν τσεκαριστει
+   το αντιστοιχο radio/checkbox. ολα γινονται με :has() χωρις js. */
+.message-fields,
+.visit-fields,
+.glance-panel,
+.business-name-row {
+  display: none;
+}
+/* send a message checked -> δειξε message fields */
+.contact-form:has(#intent-msg:checked) .message-fields { display: block; }
+/* request a visit checked -> δειξε visit fields + glance panel */
+.contact-form:has(#intent-visit:checked) .visit-fields { display: block; }
+.contact-form:has(#intent-visit:checked) .glance-panel { display: block; }
+/* business checkbox -> δειξε business name input */
+.contact-form:has(#is-business:checked) .business-name-row { display: block; }
+/* swap submit button label: κρυβω το ενα κουμπι αναλογα το mode */
+.contact-form:has(#intent-msg:checked)   .submit-btn.submit-visit { display: none; }
+.contact-form:has(#intent-visit:checked) .submit-btn.submit-msg   { display: none; }
+
+
+/* τα visit fields κληρονομουν το ιδιο 2-col layout για consistency */
+.visit-fields .form-row {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  align-items: center;
+  border-bottom: 1px solid #ece5cf;
+  padding: 0;
+  font-size: 1rem;
+}
+.visit-fields .form-row > label {
+  text-align: right;
+  padding: 8px 12px;
+  font-size: 1.05rem;
+  font-weight: normal;
+}
+.visit-fields .form-row > .inline-radios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 8px 10px;
+  background: #fff;
+}
+.visit-fields .form-row > .inline-radios label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: normal;
+  padding: 0;
+  text-align: left;
+}
+/* override του width: 100% για τα radios (δε θελουν να γεμιζουν τη στηλη) */
+.visit-fields .form-row > .inline-radios input {
+  width: auto;
+  padding: 0;
+  background: transparent;
+}
+.visit-fields .form-row input[type="date"],
+.visit-fields .form-row input[type="time"],
+.visit-fields .form-row input[type="text"],
+.visit-fields .form-row select {
+  padding: 8px 10px;
+  border: none;
+  background: #e6e6e6;
+  font-family: inherit;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+  appearance: auto;
+}
+.visit-fields .form-row input[type="date"]:focus,
+.visit-fields .form-row input[type="time"]:focus,
+.visit-fields .form-row input[type="text"]:focus,
+.visit-fields .form-row select:focus {
+  background: #f5f5f5;
+}
+.visit-fields .available-slots-row {
+  display: block;
+  padding: 6px 14px 8px;
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+  text-align: center;
+  border-bottom: 1px solid #ece5cf;
+  background: #fff;
+}
+
+.glance-panel {
+  padding: 16px 20px;
+  text-align: center;
+  background: #fff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  border-top: 1px solid #ece5cf;
+}
+.glance-panel h4 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: #3a2a10;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  letter-spacing: 0.04em;
+}
+.glance-panel p { margin: 4px 0; }
+
+.submit-row {
+  text-align: center;
+  margin-top: 26px;
+  position: relative;
+  z-index: 2;
+}
+.submit-btn {
+  display: inline-block;
+  padding: 10px 36px;
+  font-family: "Cinzel", serif;
+  font-size: 1.2rem;
+  color: #d4af37;
+  background: linear-gradient(180deg, rgba(255,254,250,0.85) 0%, rgba(249,236,193,0.85) 100%);
+  border: 1px solid rgba(201, 161, 74, 0.7);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(201, 161, 74, 0.35);
+}
+/* οσο στελνεται το mail (από js) */
+.submit-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* ====== thank-you overlay (το βαζει το js μετα την υποβολη) ====== */
+.thanks-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 14, 5, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+  animation: thanks-fade 0.25s ease;
+}
+.thanks-modal {
+  position: relative;
+  background: linear-gradient(180deg, #fffaf0 0%, #fdf3cd 100%);
+  border: 1px solid rgba(201, 161, 74, 0.75);
+  border-radius: 10px;
+  padding: 36px 44px;
+  max-width: 520px;
+  width: 100%;
+  text-align: center;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: #3a2a10;
+  box-shadow: 0 10px 40px rgba(60, 40, 10, 0.35);
+}
+.thanks-modal h2 {
+  font-family: "Cinzel", serif;
+  color: #b08a2a;
+  font-size: 1.9rem;
+  margin-bottom: 18px;
+  letter-spacing: 0.05em;
+}
+.thanks-modal p {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  margin: 8px 0;
+}
+.thanks-modal strong { color: #b08a2a; }
+.thanks-modal .age-btn {
+  margin-top: 22px;
+  border: 1px solid rgba(201, 161, 74, 0.55);
+  cursor: pointer;
+}
+
+@keyframes thanks-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+/* ====== footer ====== */
+.site-footer {
+  position: relative;
+  z-index: 10;
+  margin-top: auto;
+  padding: 22px 0 14px;
+  background: linear-gradient(180deg, #fdf3cd 0%, #fffaf0 100%);
+  border-top: 1px solid rgba(201, 161, 74, 0.35);
+  color: #3a2a10;
+  font-size: 0.95rem;
+  overflow: hidden;
+}
+.site-footer .footer-grid,
+.site-footer .footer-bottom { position: relative; z-index: 2; }
+
+/* 4 στηλες: social | pgi | visit info | map */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr 1fr;
+  gap: 24px;
+  align-items: center;
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.footer-social h4 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  color: #3a2a10;
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+  letter-spacing: 0.05em;
+}
+.footer-social ul { list-style: none; }
+.footer-social li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 4px 0;
+  font-weight: bold;
+}
+.footer-social img { width: 20px; height: 20px; }
+
+.footer-pgi { text-align: center; }
+.footer-pgi img { width: 110px; margin: 0 auto; }
+
+.footer-visit {
+  text-align: center;
+  line-height: 1.5;
+}
+.footer-visit strong { font-weight: bold; }
+
+.footer-map iframe {
+  width: 100%;
+  max-width: 180px;
+  height: 120px;
+  margin: 0 auto;
+  border: 1px solid rgba(201, 161, 74, 0.4);
+  border-radius: 3px;
+  display: block;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(201, 161, 74, 0.25);
+  font-size: 0.9rem;
+}
+
+
+/* ---------- responsive ---------- */
+/* tablet - 2 στηλες στο footer */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    text-align: center;
+  }
+  .footer-social li { justify-content: center; }
+}
+
+/* κινητο - μικραινουν fonts, ολα single column */
+@media (max-width: 600px) {
+  .brand-title { font-size: 1.6rem; }
+  .brand-tagline { font-size: 0.8rem; letter-spacing: 0.3em; }
+  .main-nav a { padding: 6px 16px; font-size: 0.95rem; }
+  .hero-card { height: 220px; border-radius: 50% / 25%; }
+  .hero-card h2 { font-size: 1.3rem; }
+  .footer-grid { grid-template-columns: 1fr; }
 }

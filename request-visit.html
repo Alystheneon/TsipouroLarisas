@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<!-- contact page.
-     η φορμα εχει δυο modes: send message ή request visit.
-     η εναλλαγη γινεται με css :has() (κανενα js).
-     το js (main.js) τρεχει μονο για την υποβολη + autoreply. -->
+<!-- ιδια φορμα με το contact.html αλλα με τσεκαρισμενο
+     το "visit" radio απο την αρχη.
+     (χωρις js δεν μπορουσα να διαβασω url params, οποτε
+     εκανα δευτερο αρχειο. ισως δεν ειναι το πιο elegant
+     αλλα δουλευει.) -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Tsipouro Larissas</title>
+  <title>Request a Visit — Tsipouro Larissas</title>
   <link rel="icon" type="image/png" href="images/onlylion22.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-
-  <!-- emailjs sdk + δικο μας main.js. defer = τρεχουν μετα το dom -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 <body>
 
+  <!-- το menu κραταει "Contact" active γιατι ειναι υποσελιδα του -->
   <header class="site-header">
     <img src="images/onlylion22.png" alt="" class="lion-corner tl" />
     <img src="images/onlylion22.png" alt="" class="lion-corner tr" />
@@ -36,20 +36,15 @@
 
   <main>
     <section class="contact-page">
-      <h2 class="page-title">GET IN TOUCH</h2>
+      <h2 class="page-title">REQUEST A VISIT</h2>
       <p class="page-intro">
-        Our door is open<br />
-        Whether you're a distributor, a curious visitor, or<br />
-        someone who'd simply like to learn more about our craft<br />
-        we'd be delighted to hear from you.
+        Tell us a little about your visit and we'll confirm availability<br />
+        within 24 hours.
       </p>
 
-      <!-- δεν εχει action/method - το js αναλαμβανει.
-           τα required/pattern ομως δουλευουν κανονικα (html5 validation) -->
       <form class="contact-form">
 
         <div class="form-section-header">Your Information</div>
-
         <div class="form-row">
           <label for="surname">Surname:</label>
           <input type="text" id="surname" name="surname" required />
@@ -63,21 +58,20 @@
           <input type="email" id="email" name="email" required />
         </div>
 
-
-        <!-- τα 2 radio που ελεγχουν τη φορμα. default = message -->
+        <!-- η μονη πραγματικη διαφορα με το contact.html:
+             το checked ειναι εδω, οχι στο intent-msg -->
         <div class="form-section-header">How can we help you?</div>
         <div class="form-radio-group">
           <label>
-            <input type="radio" id="intent-msg" name="intent" value="message" checked />
+            <input type="radio" id="intent-msg" name="intent" value="message" />
             Send a Message
           </label>
           <label>
-            <input type="radio" id="intent-visit" name="intent" value="visit" />
+            <input type="radio" id="intent-visit" name="intent" value="visit" checked />
             Request a Visit
           </label>
         </div>
 
-        <!-- αν τσεκαριστει αυτο, εμφανιζεται το business-name-row -->
         <label class="business-checkbox">
           <input type="checkbox" id="is-business" name="is_business" />
           I am contacting on behalf of a business
@@ -88,8 +82,6 @@
           <input type="text" id="business-name" name="business_name" />
         </div>
 
-
-        <!-- ===== message mode fields ===== -->
         <div class="message-fields">
           <div class="subject-row">
             <label for="subject">SUBJECT :</label>
@@ -99,8 +91,6 @@
                     placeholder="Your message..."></textarea>
         </div>
 
-
-        <!-- ===== visit mode fields ===== -->
         <div class="visit-fields">
           <div class="form-row">
             <label>Group Size</label>
@@ -114,10 +104,6 @@
               <label><input type="radio" name="groupSize" value="8" /> 8</label>
             </div>
           </div>
-
-          <!-- text input με pattern αντι για type="date".
-               το date input δειχνει διαφορετικο format σε καθε
-               browser/locale και δε μου αρεσε. -->
           <div class="form-row">
             <label for="visitDate">Preferred Date</label>
             <input type="text"
@@ -129,9 +115,6 @@
                    inputmode="numeric"
                    title="Please enter the date as dd-mm-yyyy (e.g. 15-06-2026)" />
           </div>
-
-          <!-- select με τα slots. το type="time" εχει bug στο chrome
-               με τα min/max, δεν αφηνε να γραψεις σωστα την ωρα. -->
           <div class="form-row">
             <label for="visitTime">Preferred Time</label>
             <select id="visitTime" name="visit_time">
@@ -150,12 +133,9 @@
               <option value="15:30">15:30</option>
             </select>
           </div>
-          <!-- 15:30 ειναι το τελευταιο slot γιατι το visit κραταει
-               90' και κλεινουν 17:00 -->
           <div class="available-slots-row">
             Available slots: 10:00 — 15:30 (visits last ~90 minutes; doors close at 17:00)
           </div>
-
           <div class="form-row">
             <label>Language</label>
             <div class="inline-radios">
@@ -165,8 +145,6 @@
           </div>
         </div>
 
-
-        <!-- visit summary panel -->
         <div class="glance-panel">
           <h4>YOUR VISIT AT A GLANCE</h4>
           <p>Duration ~90 minutes</p>
@@ -176,13 +154,9 @@
             Distillery tour &middot; Guided tasting &middot; Greek meze plate &middot;<br />
             Complimentary 200ml bottle to take home
           </p>
-          <!-- το total μενει placeholder, χωρις js δεν γινεται να
-               υπολογιστει live -->
           <p style="margin-top:8px;">Estimated total: € [GROUP SIZE × 25]</p>
         </div>
 
-
-        <!-- 2 κουμπια, μονο το ενα φαινεται καθε φορα (css :has) -->
         <div class="submit-row">
           <button type="submit" class="submit-btn submit-msg">Send a Message</button>
           <button type="submit" class="submit-btn submit-visit">Request a Visit</button>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<!-- αρχικη σελιδα. 4 καρτες, μια για καθε ενοτητα. -->
+<!-- δεν χρησιμοποιειται πια απο τη φορμα (το js δειχνει modal).
+     την κραταω αν θελω να την linkαρω αργοτερα. -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tsipouro Larissas — Spirit of the Plains</title>
+  <title>Thank You — Tsipouro Larissas</title>
   <link rel="icon" type="image/png" href="images/onlylion22.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,16 +13,13 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
-  <!-- ===== header (ιδιο σε ολες τις σελιδες) ===== -->
   <header class="site-header">
     <img src="images/onlylion22.png" alt="" class="lion-corner tl" />
     <img src="images/onlylion22.png" alt="" class="lion-corner tr" />
     <h1 class="brand-title">TSIPOURO LARISSAS</h1>
     <p class="brand-tagline">SPIRIT OF THE PLAINS</p>
     <nav class="main-nav">
-      <!-- active = η τρεχουσα σελιδα -->
-      <a href="home.html"          class="active">Home</a>
+      <a href="home.html">Home</a>
       <a href="our-story.html">Our Story</a>
       <a href="our-tsipouro.html">Our Tsipouro</a>
       <a href="visit-us.html">Visit Us</a>
@@ -30,63 +28,25 @@
   </header>
 
   <main>
-    <!-- καρτα 1 -> story -->
-    <section class="hero-card card-story">
-      <div class="hero-card-content">
-        <h2>SPIRIT OF THE PLAINS</h2>
-        <p>
-          Three generations of<br />
-          authentic Greek tsipouro<br />
-          from the heart of Thessaly
-        </p>
-        <a href="our-story.html" class="card-link">Read our story</a>
-      </div>
-    </section>
-
-    <!-- καρτα 2 -> προιοντα -->
-    <section class="hero-card card-tsipouro">
-      <div class="hero-card-content">
-        <h2>TSIPOURO LARISSAS</h2>
-        <p>
-          The spirit of Thessaly, in two characters<br />
-          From the vineyards of the plains to your glass — every bottle carries
-          the patience of slow distillation and the warmth of family tradition.
-        </p>
-        <a href="our-tsipouro.html" class="card-link">Learn about our Tsipouro</a>
-      </div>
-    </section>
-
-    <!-- καρτα 3 -> visit -->
-    <section class="hero-card card-visit">
-      <div class="hero-card-content">
-        <h2>VISIT OUR DISTILLERY</h2>
-        <p>
-          in Nikaia, Larissa and experience the traditional distillation of
-          tsipouro firsthand with a guided tour and tasting.
-        </p>
-        <a href="visit-us.html" class="card-link">Visit Us</a>
-      </div>
-    </section>
-
-    <!-- καρτα 4 -> contact -->
-    <section class="hero-card card-contact">
-      <div class="hero-card-content">
-        <h2>GET IN TOUCH / REQUEST A VISIT</h2>
-        <p>
-          Distributors, visitors, or fellow spirit lovers —<br />
-          we'd love to hear from you.
-        </p>
-        <a href="contact.html" class="card-link">Contact us</a>
+    <!-- ξαναχρησιμοποιω τις age-gate κλασεις γιατι εχουν το ιδιο
+         centered layout που θελω -->
+    <section class="age-gate" style="min-height: 60vh;">
+      <h1 class="age-gate-question" style="margin-bottom: 24px;">Thank you!</h1>
+      <p class="minor-message" style="font-size: 1.25rem; max-width: 640px;">
+        Your message has been received.<br />
+        A confirmation email is on its way to you,<br />
+        and a member of our family will be in touch within 24 hours.
+      </p>
+      <div class="age-gate-buttons" style="margin-top: 40px;">
+        <a href="home.html" class="age-btn">Back to Home</a>
       </div>
     </section>
   </main>
 
 
-  <!-- ===== footer (ιδιο σε ολες τις σελιδες) ===== -->
   <footer class="site-footer">
     <img src="images/onlylion22.png" alt="" class="lion-corner bl" />
     <img src="images/onlylion22.png" alt="" class="lion-corner br" />
-
     <div class="footer-grid">
       <div class="footer-social">
         <h4>FOLLOW US :</h4>
@@ -110,7 +70,6 @@
         <p><strong>Email:</strong> info@tsipourolarissas.gr</p>
       </div>
 
-      <!-- χαρτης απο openstreetmap (δωρεαν, δε χρειαζεται api key) -->
       <div class="footer-map">
         <iframe
           title="Map of Nikaia, Larissa"

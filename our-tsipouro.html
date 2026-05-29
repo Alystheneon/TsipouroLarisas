@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!-- σελιδα προιοντων.
+     2 ενοτητες:
+       - τα 6 μπουκαλια (3 με γλυκανισο + 3 χωρις) σε grid 6 στηλων
+       - τα 4 βηματα παραγωγης (harvest -> bottling)
+     το alternating text/image layout στο grid με δυσκολεψε λιγο -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Tsipouro — Tsipouro Larissas</title>
+  <link rel="icon" type="image/png" href="images/onlylion22.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <img src="images/onlylion22.png" alt="" class="lion-corner tl" />
+    <img src="images/onlylion22.png" alt="" class="lion-corner tr" />
+    <h1 class="brand-title">TSIPOURO LARISSAS</h1>
+    <p class="brand-tagline">SPIRIT OF THE PLAINS</p>
+    <nav class="main-nav">
+      <a href="home.html">Home</a>
+      <a href="our-story.html">Our Story</a>
+      <a href="our-tsipouro.html" class="active">Our Tsipouro</a>
+      <a href="visit-us.html">Visit Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="tsipouro-section">
+      <h2>OUR TSIPOURO</h2>
+      <p class="subtitle">Two expressions, one tradition</p>
+      <p class="intro">
+        Crafted from the finest grapes of the Thessalian plains, our tsipouro is distilled in small
+        batches using methods passed down through three generations. Each bottle carries the
+        patience of slow distillation and the character of its land.
+      </p>
+
+      <!-- γραμμη 1: με γλυκανισο (200 / 500 / 700 ml) -->
+      <div class="bottle-grid">
+        <div class="bottle-cell text">
+          <h3>THE CLASSIC GREEK EXPRESSION</h3>
+          <p class="tagline">Aromatic. Warming. Herbal.</p>
+          <p class="desc">
+            Distilled with Mediterranean anise the way Greek families have made tsipouro for
+            generations. A spirit meant to be shared — chilled, slowly, around a table.
+          </p>
+          <p class="spec">46% vol. · 200ml</p>
+        </div>
+        <div class="bottle-cell image">
+          <img src="images/200ml me glikaniso.png" alt="Tsipouro with Anise 200ml" />
+        </div>
+
+        <!-- το middle pair: text αριστερα, image δεξια -->
+        <div class="bottle-cell text">
+          <h3>THE MEZE COMPANION</h3>
+          <p class="tagline">Aromatic. Generous. Made to share.</p>
+          <p class="desc">
+            The classic Greek tsipouro, in a bottle made for company. Pour it slowly, around a
+            meze table — grilled fish, fresh olives, sharp cheese — and let the anise do what it
+            has always done: bring people together.
+          </p>
+          <p class="spec">46% vol. · 500ml</p>
+        </div>
+        <div class="bottle-cell image">
+          <img src="images/500ml me glikaniso.png" alt="Tsipouro with Anise 500ml" />
+        </div>
+
+        <div class="bottle-cell text">
+          <h3>THE LONG MEZE</h3>
+          <p class="tagline">Warm. Patient. Communal.</p>
+          <p class="desc">
+            What begins with two glasses ends with twenty. This is the bottle for those evenings —
+            when the food keeps coming, the stories keep flowing, and no one wants to leave the
+            table.
+          </p>
+          <p class="spec">46% vol. · 700ml</p>
+        </div>
+        <div class="bottle-cell image">
+          <img src="images/700ml me glikaniso.png" alt="Tsipouro with Anise 700ml" />
+        </div>
+      </div>
+
+      <!-- γραμμη 2: χωρις γλυκανισο -->
+      <div class="bottle-grid">
+        <div class="bottle-cell text">
+          <h3>THE PURE EXPRESSION</h3>
+          <p class="tagline">Pure. Smooth. Crisp.</p>
+          <p class="desc">
+            Distilled twice from Thessalian grape pomace — no additions, no shortcuts. Just the
+            grape, the still, and time. A tsipouro for those who want the spirit in its most honest
+            form.
+          </p>
+          <p class="spec">42% vol. · 200ml</p>
+        </div>
+        <div class="bottle-cell image">
+          <img src="images/200ml xwris glikaniso.png" alt="Tsipouro without Anise 200ml" />
+        </div>
+
+        <div class="bottle-cell text">
+          <h3>A PLACE AT THE TABLE</h3>
+          <p class="tagline">Generous. Pure. Built to share.</p>
+          <p class="desc">
+            The same Thessalian tsipouro without Anise, in a size made for company. Pour it
+            slowly, sip it with friends, let it carry the conversation. Some bottles are made to be
+            opened. Others are made to be lingered over.
+          </p>
+          <p class="spec">42% vol. · 500ml</p>
+        </div>
+        <div class="bottle-cell image">
+          <img src="images/500ml xwris glikaniso.png" alt="Tsipouro without Anise 500ml" />
+        </div>
+
+        <div class="bottle-cell text">
+          <h3>WHEN THE TABLE GROWS</h3>
+          <p class="tagline">Generous. Authentic. Unhurried.</p>
+          <p class="desc">
+            In Greek tradition, hospitality is measured by what stays open on the table. This is that
+            bottle — for the names that show up, the friends who stay, and the evenings that take
+            their time.
+          </p>
+          <p class="spec">42% vol. · 700ml</p>
+        </div>
+        <div class="bottle-cell image">
+          <img src="images/700ml xwris glikaniso.png" alt="Tsipouro without Anise 700ml" />
+        </div>
+      </div>
+    </section>
+
+
+    <!-- διαδικασια παραγωγης - 4 βηματα σε grid -->
+    <section class="process-section">
+      <h2>FROM VINE TO BOTTLE</h2>
+      <p class="subtitle">The patience of slow distillation</p>
+      <p class="intro">
+        Every bottle of Tsipouro Larissas begins in the same place — the Thessalian plains — and
+        follows the same path our family has walked for three generations.
+      </p>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <h3>STEP 1</h3>
+          <h4>HARVEST</h4>
+          <p class="when">Late summer</p>
+          <p>
+            The grapes are hand-picked from selected vineyards across the Thessalian plains.
+            We work only with varieties that suit our craft — and only at the moment of peak ripeness.
+            No mechanical harvest. No hurry.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <h3>STEP 2</h3>
+          <h4>FERMENTATION</h4>
+          <p class="when">Slow, undisturbed</p>
+          <p>
+            The grape pomace — what remains after the wine has been pressed — ferments
+            slowly in traditional vats. This is where the character of the spirit begins to form:
+            aromatic, alive, ready for the still.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <h3>STEP 3</h3>
+          <h4>DISTILLATION</h4>
+          <p class="when">Twice, in copper</p>
+          <p>
+            Small-batch distillation in copper stills, heated by direct flame. We distill twice —
+            once to extract, once to refine. It is the method our grandfather used, and the method
+            we have not changed.
+          </p>
+        </div>
+
+        <div class="process-step">
+          <h3>STEP 4</h3>
+          <h4>BOTTLING</h4>
+          <p class="when">By hand, at the distillery</p>
+          <p>
+            Every bottle is filled, sealed, and labelled at our distillery in Nikaia, Larissa.
+            No outsourcing. No automation. The same hands that distil the spirit are the hands
+            that bottle it.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="site-footer">
+    <img src="images/onlylion22.png" alt="" class="lion-corner bl" />
+    <img src="images/onlylion22.png" alt="" class="lion-corner br" />
+    <div class="footer-grid">
+      <div class="footer-social">
+        <h4>FOLLOW US :</h4>
+        <ul>
+          <li><img src="images/facebook.png"  alt="Facebook" />  Facebook</li>
+          <li><img src="images/Instagram.png" alt="Instagram" /> Instagram</li>
+          <li><img src="images/LinkedIn.png"  alt="LinkedIn" />  LinkedIn</li>
+          <li><img src="images/Youtube.png"   alt="Youtube" />   Youtube</li>
+        </ul>
+      </div>
+
+      <div class="footer-pgi">
+        <img src="images/PGI-removebg-preview.png" alt="Protected Geographical Indication" />
+      </div>
+
+      <div class="footer-visit">
+        <p><strong>Visit Us:</strong></p>
+        <p><strong>Distillery:</strong> Nikaia, Larissa</p>
+        <p><strong>Open by Appointment:</strong> Mon - Fri (10:00 - 17:00)</p>
+        <p><strong>Tel.</strong> +30 24XX XXXXXX</p>
+        <p><strong>Email:</strong> info@tsipourolarissas.gr</p>
+      </div>
+
+      <div class="footer-map">
+        <iframe
+          title="Map of Nikaia, Larissa"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=22.30%2C39.55%2C22.50%2C39.70&amp;layer=mapnik&amp;marker=39.6275%2C22.4011"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Tsipouro Larissas. All rights reserved.<br />
+      <span>⚠ 18+ Please drink responsibly. &middot; Product of Greece &middot; PGI Thessaly</span>
+    </div>
+  </footer>
+</body>
+</html>

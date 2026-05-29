@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-<!-- age gate. πρωτη σελιδα που βλεπει ο χρηστης. yes -> home, no -> minor -->
+<!-- σελιδα για αν διαλεξει "No" στο age gate.
+     dead-end, δεν εχει nav menu (ουτε πρεπει). -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tsipouro Larissas — Age Verification</title>
+  <title>Tsipouro Larissas</title>
   <link rel="icon" type="image/png" href="images/onlylion22.png" />
-
-  <!-- google fonts (cinzel για τιτλους, garamond για κειμενα) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- διακοσμητικα λιονταρια στις 4 γωνιες (alt="" γιατι ειναι deco) -->
   <img src="images/onlylion22.png" alt="" class="lion-corner tl" />
   <img src="images/onlylion22.png" alt="" class="lion-corner tr" />
   <img src="images/onlylion22.png" alt="" class="lion-corner bl" />
   <img src="images/onlylion22.png" alt="" class="lion-corner br" />
 
   <main class="age-gate">
-    <h1 class="age-gate-question">Are you 18+ years old?</h1>
-    <div class="age-gate-buttons">
-      <a href="home.html"  class="age-btn">Yes</a>
-      <a href="minor.html" class="age-btn">No</a>
-    </div>
+    <p class="minor-message">
+      We are sorry to inform<br />
+      you that this website is<br />
+      not accessible to minors
+    </p>
   </main>
 </body>
 </html>
